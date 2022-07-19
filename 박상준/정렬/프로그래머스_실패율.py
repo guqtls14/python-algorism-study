@@ -22,7 +22,7 @@ def solution(N, stages):
     counter = collections.Counter(stages).items()
 
     for i in range(1, N + 1):
-        answer.setdefault(i, 0.0)
+        answer[i] = 0.0
 
     for key, value in counter:
         if key == N + 1:
