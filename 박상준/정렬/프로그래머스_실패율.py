@@ -31,7 +31,7 @@ def solution(N, stages):
         answer[key] = failure_rate
         total_person -= value
     answer = list(sorted(answer.items(), key=lambda x: -x[1]))
-
+    
     ano_answer = [value[0] for value in answer]
     return ano_answer
 
