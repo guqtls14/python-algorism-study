@@ -1,16 +1,30 @@
-def solution(N,stages):
-    result={}
-    denominator = len(stages)
-    for stage in range(1,N+1):
-        if denominator != 0:
-            count = stages.count(stage)
-            result[stage] = count / denominator
-            denominator -= count
-        else:
-            result[stage] = 0
-    print(result)
+# def solution(N,stages):
+#     result={}
+#     denominator = len(stages)
+#     for stage in range(1,N+1):
+#         if denominator != 0:
+#             count = stages.count(stage)
+#             result[stage] = count / denominator
+#             denominator -= count
+#         else:
+#             result[stage] = 0
+#     print(result)
 
-    return sorted(result,key=lambda x : result[x],reverse=True) # value기준 정렬,key return
+#     return sorted(result,key=lambda x : result[x],reverse=True) # value기준 정렬,key return
+
+
+
+def solution(N, stages):
+    answer = {}
+    depen=len(stages)
+    for i in range(1,N+1):
+        if depen != 0:
+            count=stages.count(i)
+            answer[i]=count/depen
+            depen-=count
+        else:
+            answer[i] = 0
+    return sorted(answer,key=lambda x:answer[x],reverse=True)
 
 print(solution(5,[2,1,2,6,2,4,3,3]))
 
