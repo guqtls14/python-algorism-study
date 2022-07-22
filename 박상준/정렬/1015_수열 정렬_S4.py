@@ -16,6 +16,7 @@ input = sys.stdin.readline
 n = int(input())
 a = list(map(int, input().split()))
 b = []
+
 sorted_a = sorted(a)
 for i in range(n):
     # 인덱스는 앞에서부터 검색됨
