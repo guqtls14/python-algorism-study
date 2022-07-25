@@ -1,14 +1,16 @@
-n=int(input())
+import sys
+n=int(sys.stdin.readline())
+li1=list(map(int, sys.stdin.readline().split()))
+m=int(sys.stdin.readline())
+li2=list(map(int, sys.stdin.readline().split()))
 
-numbers = list(map(int, input().split()))
+di={}
 
-numset = set(numbers)
-list = list(numset)
-list.sort()
-# print(list)
-numdict = {}
-for i in range(len(list)):
-    numdict[list[i]] = i
-
-for i in numbers:
-    print(numdict[i],end=' ')
+for i in li2:
+    if i not in li1:
+        di[i] = 0
+    else:
+        cnt=li1.count(i)
+        di[i] = cnt
+for i in di.keys():
+    print(di[i],end=' ')
