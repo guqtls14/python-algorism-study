@@ -41,7 +41,7 @@ for line in stu_arr:
                         break
                 else:
                     break
-            except Exception:
+            except IndexError:
                 break
 for index, value, in enumerate(n_arr):
     if index != 0 and index % 20 == 0:
