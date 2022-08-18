@@ -32,10 +32,11 @@ def solution(relation):
         if len(set(tmp)) == row:  # 유일성 만족
             put = True
             for x in unique:
-                # 유니크의 튜플이 combi안의
-                if set(x).issubset(set(i)):
+                # 유니크의 튜플이 combi안의 부분집합이라면 당연히 유니크에 추가하면 안됨.
+                if set(x).issubset(set(i)):  # 최소성 만족 여부
                     put = False
                     break
+            # 최소성 유일성 만족하는 친구임. append처리
             if put:
                 unique.append(i)
 
