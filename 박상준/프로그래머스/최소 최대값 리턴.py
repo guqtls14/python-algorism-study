@@ -14,8 +14,7 @@
 def solution(s):
     answer = ''
     s = list(map(int, s.split(" ")))
-    answer = answer + str(min(s)) + " "
-    answer += str(max(s))
+    answer = str(min(s)) + " " + str(max(s))
     return answer
 
 
