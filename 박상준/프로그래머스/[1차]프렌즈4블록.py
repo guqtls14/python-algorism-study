@@ -9,47 +9,54 @@
  * -----------------------------------------------------------
  * 2022-08-23        ipeac       최초 생성
  """
-import pprint
 
 
 def solution(m, n, board):
-    print(f"m,n,board : {m, n, board}")
-    answer = 0
-    graph = []
-    for value in board:
-        li = list(value)
-        graph.append(li)
-    pprint.pprint(graph)
+    for i in range(m):
+        board[i] = list(board[i])
+    
+    cnt = 0
+    save = set()
+    
     while True:
-        save = []
         
-        x = len(graph)
-        y = len(graph[0])
+        x = len(board)
+        y = len(board[0])
         for i in range(x - 1):
             for j in range(y - 1):
-                chk = True
-                print(f"i, j : {i, j}")
+                t = board[i][j]
                 
                 # 빈공간은 패스함
-                if graph[i][j] == []:
+                if not board[i][j]:
                     continue
-                    pass
-                if board[i + 1][j]
                 
-                if chk:
-                    save.append([i, j])
+                if board[i + 1][j] == t and board[i + 1][j + 1] == t and board[i][j + 1] == t:
+                    save.add((i, j))
+                    save.add((i + 1, j))
+                    save.add((i + 1, j + 1))
+                    save.add((i, j + 1))
         
         # 지울 친구가 존재한다면
         if save:
-            print(f"save : {save}")
-            for value in save:
-                board[value[0]][value[1]], board[value[0] + 1][value[1]], board[value[0] + 1][value[1] + 1], board[value[0]][
-                    value[1] + 1] = [], [], [], []
+            cnt += len(save)
+            
+            for i, j in save:
+                board[i][j] = []
+            save = set()
+        else:
+            return cnt
         
-        if not save:
-            break
-    
-    return answer
+        #
+        while True:
+            moved = 0
+            for i in range(m - 1):
+                for j in range(n):
+                    if board[i][j] and board[i + 1][j] == []:
+                        board[i + 1][j] = board[i][j]
+                        board[i][j] = []
+                        moved += 1
+            if moved == 0:
+                break
 
 
 # m 판의 높이 (x)|| n 폭(y) || 판의 배치 정보 (board)
