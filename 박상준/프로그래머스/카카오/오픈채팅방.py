@@ -14,11 +14,20 @@ from collections import defaultdict
 
 def solution(record):
     answer = []
-    print(f"record : {record}")
     dic = defaultdict()
     for line in record:
         line = list(line.split(" "))
-        if line[0] == "ENTER":
+        if line[0] == "Enter" or line[0] == "Change":
+            dic[line[1]] = line[2]
+    
+    print(f"dic : {dic}")
+    
+    for line in record:
+        line = list(line.split(" "))
+        if line[0] == "Enter":
+            answer.append(dic[line[1]] + "님이 들어왔습니다.")
+        elif line[0] == "Leave":
+            answer.append(dic[line[1]] + "님이 나갔습니다.")
     
     return answer
 
