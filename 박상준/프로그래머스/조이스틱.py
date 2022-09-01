@@ -16,6 +16,7 @@ def solution(name):
     tmp = [['A'] * len(name)]
     
     for value in name:
+        print(f"value : {value}")
     
     return answer
 
