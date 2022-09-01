@@ -11,15 +11,14 @@
  """
 import math
 
-
 def solution(w, h):
     answer = 1
-    
+    # 최대 공약수
     gcd = math.gcd(w, h)
+    
     answer = (w + h - gcd)
     answer = (w * h) - answer
     
     return answer
-
 
 solution(8, 12)
