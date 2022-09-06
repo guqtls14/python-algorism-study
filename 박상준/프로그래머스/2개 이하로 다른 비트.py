@@ -10,26 +10,17 @@
  * 2022-09-04        qkrtkdwns3410       최초 생성
  """
 
-def convert(n):
-    arr = []
-    while n // 2:
-        arr.append(n % 2)
-        n //= 2
-    arr.append(n % 2)
-    arr.sort(reverse=True)
-    arr.insert(0, 0)
-    return arr
-
 def solution(numbers):
     answer = []
-    for value in numbers:
-        con_value = convert(value)
+    
+    for number in numbers:
         
-        if value % 2 == 0:  # 밸류가 짝수라면
-            con_value[-1] =
-            pass
-        else:  # 밸류가 홀수라면
-            pass
+        if number % 2 == 0:  # 숫자가 짝수인 경우 맨 마지막 숫자 는 0
+            answer.append(number + 1)
+        else:  # 숫자가 홀수 인 경우
+            number = '0' + bin(number)[2:]
+            number = number[:number.rindex('0')] + '10' + number[number.rindex('0') + 2:]
+            answer.append(int('0b' + number, 2))
     
     return answer
 
