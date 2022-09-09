@@ -27,16 +27,19 @@ for i in range(len(n)):
         if n_flag != 0 and n_flag != 1:
             print("Error!")
             exit(0)
+        
         n_flag = 1
         if n[i + 1] == '_' or n[i + 1].isupper():
             print("Error!")
             exit(0)
+        
         new_n += n[i + 1].upper()
         pass_chk = True
     elif n[i].isupper():
         if n_flag != 0 and n_flag != 2:
             print("Error!")
             exit(0)
+        
         n_flag = 2
         new_n += '_' + n[i].lower()
     else:
