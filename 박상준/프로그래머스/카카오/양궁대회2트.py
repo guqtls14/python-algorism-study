@@ -16,7 +16,7 @@ def solution(n, info):
     answer = [-1]
     max_gap = -1  # 점수 차
     
-    for combi in combinations_with_replacement(range(11), n):  # 중복 조합으로 0~10점까지 n개 뽑기
+    for combi in combinations_with_replacement(range(11), n):  # 중복 2조합으로 0~10점까지 n개 뽑기
         print("==========================================")
         print(f"combi : {combi}")
         info2 = [0] * 11  # 라이언의 과녁 점수
@@ -24,6 +24,7 @@ def solution(n, info):
         for i in combi:  # combi에 해당하는 화살들을 라이언의 과녁 점수에 넣기
             print(f"i : {i}")
             info2[10 - i] += 1
+            
         apeach, lion = 0, 0
         print(f"info2 : {info2}")
         for idx in range(11):
