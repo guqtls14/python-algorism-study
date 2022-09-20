@@ -1,24 +1,39 @@
 """
  *packageName    : 
  * fileName       : 1463.1로 만들기
- * author         : qkrtkdwns3410
- * date           : 2022-09-18
+ * author         : ipeac
+ * date           : 2022-09-17
  * description    :
  * ===========================================================
  * DATE              AUTHOR             NOTE
  * -----------------------------------------------------------
- * 2022-09-18        qkrtkdwns3410       최초 생성
+ * 2022-09-17        ipeac       최초 생성
  """
+import sys
 
 n = 10
+cnt = 0
 
-dp = [0] * 100001
+sys.setrecursionlimit(10 ** 9)
 
-for i in range(2, n + 1):
-    dp[i] = dp[i - 1] + 1  # dp[3] = dp[2] + 1
-    if i % 3 == 0:
-        dp[i] = min(dp[i], dp[i // 3] + 1)
-    if i % 2 == 0:
-        dp[i] = min(dp[i], dp[i // 2] + 1)
+def dp(v):
+    global cnt
+    cnt += 1
+    if v * 3 > n:
+        if v * 2 > n:
+            if v + 1 <= n:
+                v += 1
+                cnt += 1
+            elif v + 1 > n:
+                return cnt
 
-print(dp[n])
+        elif v * 2 <= n:
+            v *= 2
+            cnt += 1
+    elif v * 3 <= n:
+        v *= 3
+        cnt += 1
+    if v != n:
+        dp(v)
+
+print(dp(1))
