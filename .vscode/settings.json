@@ -1,0 +1,16 @@
+{
+  "prettier.bracketSameLine": false,
+  "prettier.bracketSpacing": true,
+  "editor.tokenColorCustomizations": {
+    "comments": "#13c213"
+  },
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
