@@ -50,3 +50,5 @@ while True:
         tmp-=li[lt]
         lt+=1
 print(cnt)
+
+# 테스트
