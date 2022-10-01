@@ -2,13 +2,13 @@ from itertools import permutations
 
 def solution(numbers):
     answer = []              
-               
+        
     # numbers를 하나씩 자른 것
     nums = [n for n in numbers]
     per = []                                      
     for i in range(1, len(numbers)+1):            # numbers의 각 숫자들을 순열로 모든 경우 만들기
         per += list(permutations(nums, i))        # i개씩 순열조합
-    # print(per)
+        print(per)
     # for i in per:
     #     print('i: ',i)
     new_nums = [int(("").join(p)) for p in per]   # 각 순열조합을 하나의 int형 숫자로 변환
@@ -26,7 +26,7 @@ def solution(numbers):
                 break
         if check:
             answer.append(n) 
-    print(answer) 
+  
     # set을 하는이유는 중복을 없애기위함
     return len(set(answer))
 # https://dev-note-97.tistory.com/99
@@ -37,3 +37,4 @@ def solution(numbers):
 # 순열,조합 라이브러리
 # https://seu11ee.tistory.com/5
 print(solution('011'))
+
