@@ -40,14 +40,14 @@ while dq:
         if visited[ny][nx] >= cur[2] + 1:  # 버틴 시간+1 보다 visit.. 가 더 크다면 패스
             continue
         
-        if graph[ny - cur[2]][nx] == '#': ㅔ
-        continue
-    
-    if graph[ny - (cur[2] + 1)][nx] == '#':
-        continue
-    
-    dq.append([nx, ny, cur[2] + 1])
-    
-    visited[ny][nx] = cur[2] + 1
+        if graph[ny - cur[2]][nx] == '#':
+            continue
+        
+        if graph[ny - (cur[2] + 1)][nx] == '#':
+            continue
+        
+        dq.append([nx, ny, cur[2] + 1])
+        
+        visited[ny][nx] = cur[2] + 1
 
 print(answer)
