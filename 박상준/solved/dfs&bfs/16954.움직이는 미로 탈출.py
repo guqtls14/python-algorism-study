@@ -16,7 +16,7 @@ direction = [[0, 0], [0, -1], [0, 1], [-1, 0], [1, 0], [-1, -1], [1, -1], [1, 1]
 graph = [list(input()) for _ in range(MAX)]
 visited = [[0] * MAX for _ in range(MAX)]
 
-dq = deque([[0, 7, 0]])  # y x 버틴 시간
+dq = deque([[0, 7, 0]])  # cur[0] cur[1] 버틴 시간
 
 answer = 0
 while dq:
@@ -40,10 +40,10 @@ while dq:
         if visited[ny][nx] >= cur[2] + 1:  # 버틴 시간+1 보다 visit.. 가 더 크다면 패스
             continue
         
-        if graph[ny - cur[2]][nx] == '#':
+        if graph[ny - cur[2]][nx] == '#':  # 내가 이동할 위치에 벽이 없는지 체크
             continue
         
-        if graph[ny - (cur[2] + 1)][nx] == '#':
+        if graph[ny - (cur[2] + 1)][nx] == '#':  # 내가 이동할 위치 바로 위에 벽이 없는지 체크
             continue
         
         dq.append([nx, ny, cur[2] + 1])
