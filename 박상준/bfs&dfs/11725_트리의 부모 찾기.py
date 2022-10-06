@@ -37,6 +37,7 @@ for i in node:
     a, b = i[0], i[1]
     graph[a].append(b)
     graph[b].append(a)
+
 bfs(graph, 1)
 
 for i in visited[2:]:
