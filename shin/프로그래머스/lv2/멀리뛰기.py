@@ -1,4 +1,4 @@
-# 피보나치수
+# # 피보나치수
 
 def solution(n):
     if n<3:
@@ -18,3 +18,11 @@ def solution(n):
 
 print(solution(4))
 
+
+# 피보나치
+# def solution(num):
+#     li=[0,1]
+#     for i in range(2,num+1):
+#         li.append(li[i-1]+li[i-2])
+#     return li
+# print(solution(9))
