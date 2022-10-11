@@ -33,23 +33,26 @@ def Solution(grid: List[List[str]]) -> int:
         
         while q:
             x, y = q.popleft()
-            for xx, yy in zip()
-        
-        pass
+            for xx, yy in zip(dx, dy):
+                nx = xx + x
+                ny = yy + y
+                if 0 <= nx < len(grid) and 0 <= ny < len(grid[0]) and not visited[nx][ny] and grid[nx][ny] == '1':
+                    q.append([nx, ny])
+                    visited[nx][ny] = 1
     
     for i in range(len(grid)):
         for j in range(len(grid[0])):
-            if not visited[i][j]:
-                bfs()
+            if not visited[i][j] and grid[i][j] == '1':
+                bfs(i, j)
                 cnt += 1
-    pass
+    return cnt
 
-print(Solution(grid=[
+"""print(Solution(grid=[
     ["1", "1", "1", "1", "0"],
     ["1", "1", "0", "1", "0"],
     ["1", "1", "0", "0", "0"],
     ["0", "0", "0", "0", "0"]
-]))
+]))"""
 print(Solution(grid=[
     ["1", "1", "0", "0", "0"],
     ["1", "1", "0", "0", "0"],
