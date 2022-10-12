@@ -10,6 +10,7 @@
  * 2022-10-12        ipeac       최초 생성
  """
 import pprint
+import sys
 from collections import deque
 
 '''
@@ -33,26 +34,30 @@ sr이 s1을 선택하는 경우에만 한 팀이 될 수 있다.
 
 주어진 선택의 결과를 보고 어느 프로젝트 팀에도 속하지 않는 학생들의 수를 계산하는 프로그램을 작성하라.
 '''
+sys.setrecursionlimit(10 ** 6)
 n = 7
-selected_student = [3, 1, 3, 7, 3, 4, 6]
-graph = [[] for _ in range(n + 1)]
+selected_student = [0, 3, 1, 3, 7, 3, 4, 6]
+visited = [True] + [False] * n  # 방문여부
 
-# 팀 맺었는지 여부 확인
-visited = [0] * (n + 1)
-for i in range(n):
-    graph[selected_student[i]].append(i + 1)
-# 0번은 2번 과 같이 하고싶고.. 1번은 0번.. 이런식으로 bfs 를 돌아야한다.
+result = []
 
-pprint.pprint(graph)
+def dfs(i):
+    global result
+    visited[i] = True
+    cycle.append(i)  # 사이클을 이루는 팀을 확인하기 위함
+    number = selected_student[i]
+    
+    if visited[number]:
+        print(visited[number])
+        if number in cycle:
+            print(number)
+            result += cycle[cycle.index(number):]
+        return
+    else:
+        dfs(number)
 
-def dfs(i, visited):
-    for v in graph[i]:
-        if not visited[v]:
-            visited[v] = 1
-            dfs(v, visited)
-            visited[v] = 0
-
-for i in range(n):
-    visited[i] = 1
-    dfs(i, visited)
-    visited[i] = 0
+for i in range(1, n + 1):
+    if not visited[i]:
+        cycle = []
+        dfs(i)
+print(n - len(result))  # 팀에 없는 사람 수
