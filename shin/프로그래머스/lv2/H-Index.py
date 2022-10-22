@@ -1,14 +1,17 @@
+
+
 def solution(citations):
-    # answer = 0
-    for i in range(len(citations)):
-        answer=0
-        for j in range(len(citations)):
-            if citations[i] <= citations[j]:
-                answer += 1
-        if answer == citations[i]:
+    citations.sort()
+    article_count = len(citations)
+    
+    for i in range(article_count):
+        if citations[i] >= article_count-i:
+            return article_count-i
+    return 0
 
-            return answer
-
-li=[6,6,6,6,6,1]
+li=[5,5,5,2]
 
 print(solution(li))
+
+# https://yunaaaas.tistory.com/56
+# https://jokerldg.github.io/algorithm/2021/06/01/h-index.html
