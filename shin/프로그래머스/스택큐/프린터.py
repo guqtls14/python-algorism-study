@@ -1,18 +1,4 @@
-# # def solution(priorities, location):
-# #     answer = 0
-# #     answerIndex=priorities[location]
-# #     while answerIndex in priorities:
-# #         print('answer: ',answerIndex)
-# #         tmp = priorities.pop(0) 
-# #         if tmp >= max(priorities):
-# #             answer+=1
-# #             if tmp == answerIndex:
-# #                 return answer
-# #             else:
-# #                 continue
-# #         else:
-# #             priorities.append(tmp)
-# #     # return answer
+
 
 from collections import deque
 def solution(priorities, location):
@@ -36,6 +22,8 @@ def solution(priorities, location):
 priorities=[1, 1, 9, 1, 1, 1]
 location=0
 print(solution(priorities,location))
+
+
 
 # 참고
 # https://eda-ai-lab.tistory.com/461

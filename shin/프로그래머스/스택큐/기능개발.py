@@ -40,3 +40,4 @@ speed=[1,30,5]
 print(solution(li,speed))
 
 
+
